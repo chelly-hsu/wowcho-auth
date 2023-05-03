@@ -24,7 +24,6 @@ app.use('/reset-password', updatePasswordRouter)  //更新密碼
 
 // 404 錯誤
 app.use(function(req, res, next) {
-  console.log(res)
     res.status(404).json({
       status: 'error',
       message: "無此路由資訊",
