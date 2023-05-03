@@ -2,7 +2,7 @@
 import { Request, Response, NextFunction } from 'express'
 import { appError } from '../services/appError';
 import { errorHandler } from '../services/errorHandler'
-import { Register } from '../models/Register.model';
+import { Register } from '../models/Register.model'
 import { IRegister } from '../interfaces/Register.interface'
 import { successHandler } from '../services/successHandler'
 import validator from 'validator'
