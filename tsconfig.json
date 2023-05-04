@@ -1,14 +1,6 @@
 {
   "compilerOptions": {
     "types": ["node", "jest"],
-    "moduleResolution": "node",
     "esModuleInterop": true,
-    "baseUrl": ".",
-    "skipLibCheck": true,
-    "paths": {
-      "*": ["*", "node_modules/*"]
-    },
-    "forceConsistentCasingInFileNames": true //確保檔案的大小寫一致
-
   }
 }
