@@ -1,9 +1,11 @@
 import express from 'express'
 import cors from 'cors' 
+import path from 'path'
 
 import { registerRouter } from './routes/Register.route'
 import { signInRouter } from './routes/SignIn.route'
 import { userRouter } from './routes/User.route'
+import { moneyFlowRouter } from './routes/MoneyFlow.route'
 import { updatePasswordRouter } from './routes/UpdatePassword.route'
 import { uploadRouter } from './routes/Upload.route'
 
@@ -11,6 +13,7 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 // TODO 先放根目錄提供會員功能還沒好前串接測試，有會員後需要移到各自 API 內
 app.use('/upload', uploadRouter)
@@ -18,9 +21,13 @@ app.use('/upload', uploadRouter)
 app.use('/sign-up', registerRouter)    //註冊
 app.use('/login', signInRouter)       //登入
 app.use('/profile', userRouter)
+app.use('/money-flow', moneyFlowRouter)  //送出金流
 app.use('/reset-password', updatePasswordRouter)  //更新密碼
 
 
+// 確認訂單進藍新金流 測試頁面
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'views'))
 
 // 404 錯誤
 app.use(function(req, res, next) {
