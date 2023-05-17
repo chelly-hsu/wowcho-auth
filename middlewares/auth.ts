@@ -51,8 +51,14 @@ export const generateSendJWT= (user,statusCode,res)=>{
   // 組給前端的response訊息
   user.password = undefined;
   res.status(statusCode).json({ //statusCode:201成功
+    // code: statusCode,
+    // message: 'Success',
+    // data:{
+    //   token,
+    //   name: user.name
+    // }
     code: statusCode,
-    message: 'Success',
+    status: 'Success',
     data:{
       token,
       name: user.name
